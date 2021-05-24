@@ -1,3 +1,14 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #E5E5E5;
   font-family: 'Inter-Regular', sans-serif;
+  color: #808080;
 }
+
+.App__main {
+  flex: auto;
+  display: flex;
+}
+

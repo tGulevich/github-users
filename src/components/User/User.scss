@@ -1,0 +1,51 @@
+.User{
+  margin-top: 40px;
+  max-width: 295px;
+
+  &__avatar {
+    margin-bottom: 29px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+  }
+
+  &__name {
+    margin-bottom: 12px;
+    color: #000000;
+    font-family: 'Inter-SemiBold', sans-serif;
+    font-size: 26px;
+    line-height: 130%;
+  }
+
+  &__link {
+    margin-bottom: 25px;
+    display: block;
+    color: #0064EB;
+    font-size: 18px;
+    line-height: 22px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__network {
+    display: flex;
+    font-size: 16px;
+    line-height: 150%;
+    color: #000000;
+
+    &_followers {
+      padding-left: 32px;
+      background: url('../../assets/group_24px.svg') no-repeat left center;
+
+    }
+    &_following {
+      margin-left: 16px;
+      padding-left: 32px;
+      background: url('../../assets/person_24px.svg') no-repeat left center;
+
+    }
+  }
+}

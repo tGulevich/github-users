@@ -1,0 +1,25 @@
+.Search {
+  padding: 0 41px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  color: #808080;
+  background-color: #0064EB;
+}
+
+.Search__logo {
+  margin-right: 22px;
+}
+
+.Search__bar {
+  padding-left: 44px;
+  width: 500px;
+  height: 40px;
+  font-size: 14px;
+  background-image: url(../../assets/search.svg);
+  background-repeat: no-repeat;
+  background-position: 19px 50%;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+}

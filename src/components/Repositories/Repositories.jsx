@@ -1,4 +1,5 @@
 import './Repositories.scss';
+import Pagination from '../Pagination/Pagination';
 
 function Repositories() {
   return (
@@ -38,6 +39,7 @@ function Repositories() {
           </p>
         </div>
       </div>
+      <Pagination />
     </div>
   );
 }

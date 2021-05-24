@@ -1,0 +1,68 @@
+.Pagination {
+  display: flex;
+  justify-content: flex-end;
+
+  &__info {
+    display: flex;
+    align-items: center;
+    margin-right: 28px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    color: #808080;
+  }
+
+  &__btn {
+    margin: 0 10px;
+    padding: 2px 6px;
+    font-family: 'Inter-Regular', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    cursor: pointer;
+
+    &:hover {
+      color: #0064EB;
+    }
+
+    &_active {
+      color: #fff;
+      background: #0064EB;
+      border-radius: 3px;
+
+      &:hover {
+        color: #fff;
+      }
+    } 
+  }
+
+  &__arrow {
+    width: 9px;
+    height: 9px;
+    display: inline-block;
+    color: transparent;
+    border: solid #808080;
+    border-width: 0 2px 2px 0;
+    cursor: pointer;
+
+    &:hover {
+      border: solid #0064EB;
+      border-width: 0 2px 2px 0;
+    }
+
+    &_prev {
+      transform: rotate(135deg);
+      margin-right: 12px;
+    }
+
+    &_next {
+      margin-left: 12px;
+      margin-right: 2px;
+      transform: rotate(-45deg);
+    }
+  }
+}

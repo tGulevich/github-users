@@ -1,0 +1,38 @@
+.Repositories {
+  margin-top: 28px;
+  margin-left: 24px;
+  
+  &__title {
+    margin-bottom: 29px;
+    color: #000000;
+    font-family: 'Inter-SemiBold', sans-serif;
+    font-size: 32px;
+    line-height: 130%;
+  }
+
+  &__item {
+    margin-bottom: 24px;
+    padding: 24px 32px;
+    background-color: #ffffff;
+    border-radius: 6px;
+  }
+
+  &__name {
+    margin-bottom: 16px;
+    font-family: 'Inter-Medium', sans-serif;
+    font-size: 24px;
+    line-height: 29px;
+
+    a {
+      color: rgba(0, 100, 235, 1);
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  &__description {
+    color: #000000;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}

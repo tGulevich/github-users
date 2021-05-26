@@ -7,7 +7,6 @@ import User from './components/User/User';
 import Repositories from './components/Repositories/Repositories';
 
 
-
 function App() {
   return (
     <div className="App">

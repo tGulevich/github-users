@@ -7,18 +7,19 @@ import NoUserScreen from './components/screens/NoUserScreen';
 import NoRepositoriesScreen from './components/screens/NoRepositoriesScreen';
 import User from './components/User/User';
 import Repositories from './components/Repositories/Repositories';
+import Loader from './components/Loader/Loader'
 
 function App() {
   const userData = useSelector(state => state.user.userName);
   const userStatus = useSelector(state => state.user.isNotFound);
   const reposData = useSelector(state => state.repos.reposItems);
-
-  console.log(userStatus)
-  console.log(reposData)
+  const loadingStatus = useSelector(state => state.repos.isLoading);
 
   let mainBlock;
   if (!userData && !userStatus) {
     mainBlock = <StartScreen />
+  } else if (loadingStatus) {
+    mainBlock = <Loader />
   } else if (userStatus) {
     mainBlock = <NoUserScreen />
   } else {

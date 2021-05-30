@@ -5,7 +5,6 @@ import { getUser, getRepos } from '../../services/api/requests';
 import { useDispatch } from 'react-redux';
 import { setCurrPage } from '../../reducers/reposReducer'
 
-
 function Search() {
   const dispatch = useDispatch();
 

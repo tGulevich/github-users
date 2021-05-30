@@ -1,12 +1,30 @@
 .User{
   margin-top: 40px;
+  margin-right: 10px;
   max-width: 295px;
+
+  @media only screen and (max-width: 960px) {
+    max-width: 255px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    margin-right: 0;
+  }
 
   &__avatar {
     margin-bottom: 29px;
     width: 280px;
     height: 280px;
     border-radius: 50%;
+
+    @media only screen and (max-width: 960px) {
+      width: 220px;
+      height: 220px;
+    }
+    @media only screen and (max-width: 767px) {
+      width: 255px;
+      height: 255px;
+    }
   }
 
   &__name {
@@ -37,6 +55,10 @@
     line-height: 150%;
     color: #000000;
 
+    @media only screen and (max-width: 1060px) {
+      flex-direction: column;
+    }
+
     &_followers {
       padding-left: 32px;
       background: url('../../assets/group_24px.svg') no-repeat left center;
@@ -47,6 +69,10 @@
       padding-left: 32px;
       background: url('../../assets/person_24px.svg') no-repeat left center;
 
+      @media only screen and (max-width: 1060px) {
+        margin-left: 0;
+        margin-top: 10px;
+      }
     }
   }
 }

@@ -1,14 +1,21 @@
 .Screen {
   align-self: center;
-  margin: 0 auto;
-  margin-top: -72px; // Search's height
+  margin: auto;
   width: 210px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transform: translateY(-25%);
 
   &_lg {
     width: 245px;
+  }
+
+  &_half {
+    @media only screen and (max-width: 767px) {
+      transform: translateY(0);
+      margin: 40px 0;
+    }
   }
 
   &__icon {
@@ -39,5 +46,9 @@
     font-size: 22px;
     line-height: 140%;
     text-align: center;
+
+    @media only screen and (max-width: 480px) {
+      font-size: 21px;
+    }
   }
 }

@@ -17,7 +17,7 @@ function App() {
   console.log(reposData)
 
   let mainBlock;
-  if (!userData) {
+  if (!userData && !userStatus) {
     mainBlock = <StartScreen />
   } else if (userStatus) {
     mainBlock = <NoUserScreen />
@@ -38,7 +38,9 @@ function App() {
     <div className="App">
       <Search />
       <main className="App__main">
-        {mainBlock}
+        <div className="App__container">
+          {mainBlock}
+        </div>
       </main>
     </div>
   );

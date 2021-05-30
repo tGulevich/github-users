@@ -5,14 +5,12 @@ import './User.scss';
 
 function Search(props) {
   const user = props.userInfo;
-  // followers, following;
 
   const roundNumber = (num) => {
-    // let result;
     if (num > 1000) {
       return (num / 1000).toFixed(1) + 'k'
     }
-    return num
+    return num;
   }
   return (
     <div className="User">

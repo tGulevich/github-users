@@ -20,12 +20,28 @@ export const getUser = (searchQuery) => {
   }
 };
 
-export const getRepos = (searchQuery) => { // !!!!!!!
+export const getRepos = (searchQuery) => {
+  const PER_PAGE = 100;
+  let pageNum = 1;
+  let resultData = [];
+  const getData = async function () {
+    const response = await axios.get(`${API_URL}/users/${searchQuery}/repos?per_page=${PER_PAGE}&page=${pageNum}`);
+    console.log(response.data)
+    if (response.data.length) {
+      resultData = resultData.concat(response.data)
+    }
+    if (response.data.length === PER_PAGE) {
+      pageNum += 1;
+      await getData();
+    }
+    console.log(resultData)
+    return resultData;
+  };
   return async (dispatch) => {
     try {
-      const response = await axios.get(`${API_URL}/users/${searchQuery}/repos?sort=updated`);
-      console.log(response)
-      await dispatch(setRepos(response.data));
+      await getData();
+      await dispatch(setRepos(resultData));
+
     } catch (error) {
       console.log(error);
     }

@@ -32,7 +32,6 @@ function App() {
       <User userInfo={userData} />
       {reposBlock}
     </React.Fragment>
-
   }
 
   return (
@@ -40,16 +39,6 @@ function App() {
       <Search />
       <main className="App__main">
         {mainBlock}
-        {/* {!userData ? <StartScreen /> :
-          <React.Fragment>
-            <User userInfo={userData} /> */}
-        {/* {reposData && !reposData.length ? <NoRepositoriesScreen /> : <Repositories repos={reposData} />} */}
-        {/* {reposData ? <Repositories repos={reposData} /> : <NoRepositoriesScreen />}
-          </React.Fragment>
-        } */}
-        {/* <StartScreen /> */}
-        {/* <NoUserScreen /> */}
-        {/* <NoRepositoriesScreen /> */}
       </main>
     </div>
   );

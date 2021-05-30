@@ -27,7 +27,7 @@ function Repositories(props) {
 
   return (
     <div className="Repositories">
-      <h3 className="Repositories__title">Repositories (249)</h3>
+      <h3 className="Repositories__title">Repositories ({reposTotalCount})</h3>
       <div className="Repositories__list">
         {reposItems}
       </div>

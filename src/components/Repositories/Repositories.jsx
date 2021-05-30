@@ -1,45 +1,41 @@
+import React from 'react';
 import './Repositories.scss';
 import Pagination from '../Pagination/Pagination';
+import { useSelector } from 'react-redux';
 
-function Repositories() {
+const REPOS_PER_PAGE = 4;
+
+function Repositories(props) {
+  const currPage = useSelector(state => state.repos.currPage);
+  const repos = props.repos;
+  const reposTotalCount = repos.length;
+
+  const startIndex = currPage * REPOS_PER_PAGE - REPOS_PER_PAGE;
+  const endIndex = startIndex + REPOS_PER_PAGE - 1;
+  const reposItems = repos.map((item, index) => {
+    if (index >= startIndex && index <= endIndex) {
+      return (
+        <div className="Repositories__item" key={index}>
+          <p className="Repositories__name">
+            <a href={item.html_url} target="_blank" rel="noreferrer">{item.name}</a>
+          </p>
+          <p className="Repositories__description">{item.description}</p>
+        </div>);
+    }
+    return null;
+  });
+
   return (
     <div className="Repositories">
       <h3 className="Repositories__title">Repositories (249)</h3>
       <div className="Repositories__list">
-        <div className="Repositories__item">
-          <p className="Repositories__name">
-            <a href="#">react-hot-loader</a>
-          </p>
-          <p className="Repositories__description">
-            Tweak React components in real time. (Deprecated: use Fast Refresh instead.
-          </p>
-        </div>
-        <div className="Repositories__item">
-          <p className="Repositories__name">
-            <a href="#">react-hot-loader</a>
-          </p>
-          <p className="Repositories__description">
-            Tweak React components in real time. (Deprecated: use Fast Refresh instead.
-          </p>
-        </div>
-        <div className="Repositories__item">
-          <p className="Repositories__name">
-            <a href="#">whatthefuck.is</a>
-          </p>
-          <p className="Repositories__description">
-            An opinionated glossary of computer science terms for front-end developers. Written by Dan Abramov.
-          </p>
-        </div>
-        <div className="Repositories__item">
-          <p className="Repositories__name">
-            <a href="#">react-hot-loader</a>
-          </p>
-          <p className="Repositories__description">
-            Tweak React components in real time. (Deprecated: use Fast Refresh instead.
-          </p>
-        </div>
+        {reposItems}
       </div>
-      <Pagination />
+      <Pagination
+        reposCount={reposTotalCount}
+        perPage={REPOS_PER_PAGE}
+        startIndex={startIndex} endIndex={endIndex}
+      />
     </div>
   );
 }

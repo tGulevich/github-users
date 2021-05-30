@@ -3,25 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
-
-const defaultState = {
-  userName: '',
-  // userData: {}
-}
-
-const reducer = (state = defaultState, action) => {
-  switch (action.type) {
-    case 'GET_USER_NAME':
-      return { ...state, userName: action.payload };
-    default:
-      return state;
-  }
-}
-
-const store = createStore(reducer);
+import { store } from './reducers/'
 
 ReactDOM.render(
   <Provider store={store}>

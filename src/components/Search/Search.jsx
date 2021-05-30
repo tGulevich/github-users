@@ -1,33 +1,39 @@
 import './Search.scss';
 import logo from '../../assets/github-logo.svg';
+import React, { useState } from 'react'
 import { getUser, getRepos } from '../../services/api/requests';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { setCurrPage } from '../../reducers/reposReducer'
+
 
 function Search() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-  const user = useSelector(state => state.userName)
-
+  const [value, setValue] = useState('');
+  const clearValue = () => {
+    setValue('');
+  }
 
   const handleChange = (event) => {
-    dispatch({ type: 'GET_USER_NAME', payload: event.target.value });
+    setValue(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-
-    console.log(user);
-    if (user) {
-      getUser(user);
-      getRepos(user);
-    }
+  const handleSubmit = async (event) => {
+    clearValue();
     event.preventDefault();
+
+    if (value) {
+      dispatch(getUser(value));
+      dispatch(getRepos(value));
+      dispatch(setCurrPage(1));
+    }
   };
 
   return (
     <div className="Search">
       <img className="Search__logo" src={logo} alt="Github Logo" />
       <form onSubmit={handleSubmit}>
-        <input className="Search__bar" placeholder="Enter GitHub username" onChange={handleChange} />
+        <input className="Search__bar" value={value} placeholder="Enter GitHub username" onChange={handleChange} type="text" />
       </form>
     </div>
   );

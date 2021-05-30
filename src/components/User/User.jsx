@@ -1,15 +1,18 @@
 import './User.scss';
-import photo from '../../assets/photo.png'
+// import photo from '../../assets/photo.png' 
 
-function Search() {
+// Delete photo from assets !!!!!
+
+function Search(props) {
+  const user = props.userInfo;
   return (
     <div className="User">
-      <img className="User__avatar" src={photo} alt="User Avatar" />
-      <p className="User__name">Dan Abramov</p>
-      <a className="User__link" src="#">gaearon</a>
+      <img className="User__avatar" src={user.avatar_url} alt="User Avatar" />
+      <p className="User__name">{user.name}</p>
+      <a className="User__link" href={user.html_url} target="_blank" rel="noreferrer">{user.login}</a>
       <div className="User__network">
-        <p className="User__network_followers">65.8k followers</p>
-        <p className="User__network_following">171 following</p>
+        <p className="User__network_followers">{user.followers} followers</p>
+        <p className="User__network_following">{user.following} following</p>
       </div>
     </div>
   );

@@ -22,7 +22,8 @@ function App() {
         {!userData ? <StartScreen /> :
           <React.Fragment>
             <User userInfo={userData} />
-            {reposData && !reposData.length ? <NoRepositoriesScreen /> : <Repositories repos={reposData} />}
+            {/* {reposData && !reposData.length ? <NoRepositoriesScreen /> : <Repositories repos={reposData} />} */}
+            {reposData ? <Repositories repos={reposData} /> : <NoRepositoriesScreen />}
           </React.Fragment>
         }
         {/* <StartScreen /> */}

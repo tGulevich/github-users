@@ -30,10 +30,12 @@ function Search() {
 
   return (
     <div className="Search">
-      <img className="Search__logo" src={logo} alt="Github Logo" />
-      <form onSubmit={handleSubmit}>
-        <input className="Search__bar" value={value} placeholder="Enter GitHub username" onChange={handleChange} type="text" />
-      </form>
+      <div className="Search__container">
+        <img className="Search__logo" src={logo} alt="Github Logo" />
+        <form onSubmit={handleSubmit}>
+          <input className="Search__bar" value={value} placeholder="Enter GitHub username" onChange={handleChange} type="text" />
+        </form>
+      </div>
     </div>
   );
 }

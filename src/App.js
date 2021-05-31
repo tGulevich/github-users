@@ -7,7 +7,8 @@ import NoUserScreen from './components/screens/NoUserScreen';
 import NoRepositoriesScreen from './components/screens/NoRepositoriesScreen';
 import User from './components/User/User';
 import Repositories from './components/Repositories/Repositories';
-import Loader from './components/Loader/Loader'
+import Loader from './components/Loader/Loader';
+import { isNotSearch, hasRepos, hasNotRepos } from './services/utils/utils'
 
 function App() {
   const userData = useSelector(state => state.user.userName);
@@ -16,7 +17,7 @@ function App() {
   const loadingStatus = useSelector(state => state.repos.isLoading);
 
   let mainBlock;
-  if (!userData && !userStatus) {
+  if (isNotSearch(userData, userStatus)) {
     mainBlock = <StartScreen />
   } else if (loadingStatus) {
     mainBlock = <Loader />
@@ -24,9 +25,9 @@ function App() {
     mainBlock = <NoUserScreen />
   } else {
     let reposBlock;
-    if (reposData && !reposData.length) {
+    if (hasNotRepos(reposData)) {
       reposBlock = <NoRepositoriesScreen />
-    } else if (reposData && reposData.length) {
+    } else if (hasRepos(reposData)) {
       reposBlock = <Repositories repos={reposData} />
     }
     mainBlock = <React.Fragment>

@@ -39,9 +39,8 @@ export const getRepos = (searchQuery) => {
       dispatch(setLoadingStatus(true));
       await getData();
       await dispatch(setRepos(resultData));
-      dispatch(setLoadingStatus(false));
     } catch (error) {
-      dispatch(setLoadingStatus(false));
     }
+    dispatch(setLoadingStatus(false));
   }
 };

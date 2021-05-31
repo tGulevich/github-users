@@ -1,12 +1,10 @@
 const SET_USER = "SET_USER";
 const SET_USER_STATUS = "SET_USER_STATUS";
 
-
 const defaultState = {
   userName: null,
   isNotFound: false
 }
-
 
 export default function reposReducer(state = defaultState, action) {
   switch (action.type) {

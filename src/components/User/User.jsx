@@ -1,7 +1,4 @@
 import './User.scss';
-// import photo from '../../assets/photo.png' 
-
-// Delete photo from assets !!!!!
 
 function Search(props) {
   const user = props.userInfo;
@@ -11,7 +8,8 @@ function Search(props) {
       return (num / 1000).toFixed(1) + 'k'
     }
     return num;
-  }
+  };
+
   return (
     <div className="User">
       <img className="User__avatar" src={user.avatar_url} alt="User Avatar" />

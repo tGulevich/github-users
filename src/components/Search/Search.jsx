@@ -11,7 +11,7 @@ function Search() {
   const [value, setValue] = useState('');
   const clearValue = () => {
     setValue('');
-  }
+  };
 
   const handleChange = (event) => {
     setValue(event.target.value);
